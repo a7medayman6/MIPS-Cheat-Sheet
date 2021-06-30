@@ -10,8 +10,8 @@
 ```assembly
 # Name 				# OP-CODE 	# Description
 # ____________________________________________________________________ #
-$zero 				# 0			# stores the value 0 - can't be changed
-$at 				# 1			# reserved for the assembler
+$zero 				# 0		# stores the value 0 - can't be changed
+$at 				# 1		# reserved for the assembler
 $v0 - $v1			# 2 - 3		# Proc return values and exp eval
 $a0 - $a3 			# 4 - 7 	# Proc arguments
 $t0 - $t7	 	 	# 8 - 15	# for temporary values
@@ -37,8 +37,9 @@ sub dest, src1, src2 		# dest = src1 - src2
 addi dest, src1, c
 	# No subtract Immediate Instruction, use negative constant with addi
 addi dest, src1, -c
-	# move data between Registers 
-	# NO MOV INSTRUCTION use addition with zero 
+
+# How to move data between Registers ?  
+# NO MOV INSTRUCTION use addition with zero 
 add dest, $t1, $zero
 addi dest, $t1, 0
 ```
@@ -48,6 +49,8 @@ addi dest, $t1, 0
 and dest, src1, src2 		# dest = src1 & src2 - performs bitwise AND between src1 and src2 and stores the result in dest
 or dest, src1, src2 		# dest = src1 | src2 - performs bitwise OR between src1 and src2 and stores the result in dest
 nor dest, src1, src2 		# dest = ~(src1 | src2) - performs bitwise NOR between src1 and src2 and stores the result in dest
+
+# How to negiate ?
 # NO NOT INSRUCTION , USE NOR 
 nor dest, dest, dest 		# dest = ~(dest | dest) = ~dest - negeate dest and stores it in dest 
 
@@ -104,7 +107,7 @@ jr $ra 					# Jump Register - Jump to the address in $ra by copying $ra value to
 
 ```assembly
 slt dest, src1, src2 	# Set Less Than - set dest if src1 < src2 else clear dest
-slti dest, src1, c 		# Set Less Than Immediate - set dest if src1 < c else clear dest
+slti dest, src1, c 	# Set Less Than Immediate - set dest if src1 < c else clear dest
 
 sltu dest, src1, src2 	# Set Less Than unsigned  - set dest if src1 < src2 else clear dest
 sltui dest, src1, c 	# Set Less Than unsigned Immediate - set dest if src1 < c else clear dest
