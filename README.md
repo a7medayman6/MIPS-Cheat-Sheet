@@ -10,8 +10,8 @@
 ```assembly
 # Name 				# OP-CODE 	# Description
 # ____________________________________________________________________ #
-$zero 				# 0			# stores the value 0 - can't be changed
-$at 				# 1			# reserved for the assembler
+$zero 				# 0		# stores the value 0 - can't be changed
+$at 				# 1		# reserved for the assembler
 $v0 - $v1			# 2 - 3		# Proc return values and exp eval
 $a0 - $a3 			# 4 - 7 	# Proc arguments
 $t0 - $t7	 	 	# 8 - 15	# for temporary values
@@ -37,8 +37,9 @@ sub $t0, $s0, $s1 		# $t0 = $s0 - $s1
 addi $t0, $s0, 4
 	# No subtract Immediate Instruction, use negative constant with addi
 addi $t0, $s0, -1
-	# move data between Registers 
-	# NO MOV INSTRUCTION use addition with zero 
+
+# how to move data between Registers ?
+# NO MOV INSTRUCTION use addition with zero 
 add $t0, $t1, $zero
 addi $t0, $t1, 0
 ```
@@ -75,10 +76,5 @@ sb $s0, c ($s1) 		# Store byte - Stores byte from $s0 into Mem[$s1 + c]  - $s1 i
 ll $s0, c ($s1) 		# Load linked word - Loads word as 1st half of atomic swap from Mem[$s1 + c] into $s0  - $s1 is the base address, c is the offset, $s0 is dest  - $s0 = Mem[$s1 + c]
 sc $s0, c ($s1) 		# Store condition word - Stores word as 2nd half of atomic swap from $s0 into Mem[$s1 + c]  - $s1 is the base address, c is the offset, $s0 is dest - Mem[$s1 + c] = $s0
 
-lhu $s0, c 				# Load upper immediate - Loads c into upper 16 bits of $s0 - $s0 = c * 2^16
+lhu $s0, c 			# Load upper immediate - Loads c into upper 16 bits of $s0 - $s0 = c * 2^16
 ```
-
-
-
-
-
