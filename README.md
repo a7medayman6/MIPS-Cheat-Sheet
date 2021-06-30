@@ -49,6 +49,8 @@ addi $t0, $t1, 0
 and $t0, $s0, $s1 		# $t0 = $s0 & $s1 - performs bitwise AND between $s0 and $s1 and stores the result in $t0
 or $t0, $s0, $s1 		# $t0 = $s0 | $s1 - performs bitwise OR between $s0 and $s1 and stores the result in $t0
 nor $t0, $s0, $s1 		# $t0 = ~($s0 | $s1) - performs bitwise NOR between $s0 and $s1 and stores the result in $t0
+
+# How to Negiate (NOT X) ? 
 # NO NOT INSRUCTION , USE NOR 
 nor $t0, $t0, $t0 		# $t0 = ~($t0 | $t0) = ~$t0 - negeate $t0 and stores it in $t0 
 
